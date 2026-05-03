@@ -35,7 +35,8 @@ Příkazy `book/create` a `author/delete` vrací strukturu s `uuAppErrorMap` a p
 
 ## Repozitář
 
-Projekt: **Library-App-BCKND** — backend pro budoucí frontend v monorepu / souvisejícím repozitáři.
+- **GitHub:** [pangery/Library-App-BCKND](https://github.com/pangery/Library-App-BCKND)
+- Název repozitáře: **Library-App-BCKND** (backend; frontend může být v samostatném repu dle zadání)
 
 ## Licence
 
