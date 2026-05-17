@@ -22,10 +22,15 @@ function execute(dtoIn) {
     });
   }
 
+  const isbn =
+    typeof dtoIn.isbn === 'string' && dtoIn.isbn.trim() !== ''
+      ? dtoIn.isbn.trim()
+      : null;
+
   const book = bookDao.create({
-    title: dtoIn.title,
+    title: dtoIn.title.trim(),
     authorId: dtoIn.authorId,
-    isbn: dtoIn.isbn,
+    isbn,
   });
 
   return { book, uuAppErrorMap: {} };

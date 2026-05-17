@@ -10,9 +10,15 @@ const AuthorDao = {
   },
   get: (id) => authors.find(a => a.id === id),
   list: () => authors,
+  update: (id, data) => {
+    const index = authors.findIndex((a) => a.id === id);
+    if (index === -1) return null;
+    authors[index] = { ...authors[index], ...data };
+    return authors[index];
+  },
   delete: (id) => {
     authors = authors.filter(a => a.id !== id);
-  }
+  },
 };
 
 module.exports = AuthorDao;

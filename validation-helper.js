@@ -28,7 +28,31 @@ const ValidationHelper = {
     const missing = [];
     if (isBlank(dtoIn.title)) missing.push('title');
     if (isBlank(dtoIn.authorId)) missing.push('authorId');
-    if (isBlank(dtoIn.isbn)) missing.push('isbn');
+
+    if (missing.length > 0) {
+      return {
+        valid: false,
+        uuAppErrorMap: buildInvalidDtoIn('Required fields are missing.', {
+          missingParameters: missing,
+        }),
+      };
+    }
+
+    return { valid: true, uuAppErrorMap: {} };
+  },
+
+  validateAuthorUpdate(dtoIn) {
+    if (!dtoIn || typeof dtoIn !== 'object') {
+      return {
+        valid: false,
+        uuAppErrorMap: buildInvalidDtoIn('dtoIn must be an object.'),
+      };
+    }
+
+    const missing = [];
+    if (isBlank(dtoIn.id)) missing.push('id');
+    if (isBlank(dtoIn.name)) missing.push('name');
+    if (isBlank(dtoIn.surname)) missing.push('surname');
 
     if (missing.length > 0) {
       return {
